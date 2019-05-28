@@ -11,7 +11,7 @@ const scroll = () => {
 scroll();
 
 const scroll2 = () => {
-  let controller = new ScrollMagic.Controller();
+  let controller = new ScrollMagic.Controller(); 
   let ourScene = new ScrollMagic.Scene({
     triggerElement: ".cards",
     offset: -850

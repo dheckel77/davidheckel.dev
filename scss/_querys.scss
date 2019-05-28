@@ -1,0 +1,134 @@
+@media (min-width: 2000px) {
+  .main-nav .logo {
+    font-size: 3rem;
+  }
+
+  .main-nav {
+    li {
+      font-size: 3rem;
+    }
+  }
+
+  .main-h1 {
+    font-size: 2rem;
+
+    button {
+      padding: 1.8rem 4.5rem;
+
+      a {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .about-me {
+    margin-top: -4rem;
+  }
+
+  .about-me .about-me-h1 {
+    font-size: 3rem;
+    margin-top: 3rem;
+  }
+
+  .line {
+    width: 400px;
+  }
+
+  #about-me-1 {
+    h3 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+      width: 1000px;
+    }
+
+    i {
+      font-size: 4rem;
+    }
+  }
+
+  .about-me .about-me-pic {
+    width: 500px;
+    height: 500px;
+    margin-right: 2rem;
+  }
+
+  .what-i-do {
+    h1 {
+      font-size: 3rem;
+    }
+
+    .card {
+      width: 500px;
+
+      p {
+        width: 450px;
+        font-size: 2rem;
+      }
+
+      i {
+        font-size: 4rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    &::before {
+      left: 71%;
+    }
+  }
+
+  .form {
+    h1 {
+      font-size: 3rem;
+    }
+
+    .form-container {
+      width: 600px;
+      height: auto;
+      input {
+        width: 400px;
+        height: 3rem;
+      }
+
+      label {
+        font-size: 2rem;
+      }
+    }
+    .contact {
+      h3 {
+        font-size: 2rem;
+        margin-left: -2rem;
+        margin-top: 5rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+        margin-left: -2rem;
+      }
+    }
+  }
+  .icons {
+    i {
+      font-size: 4rem;
+    }
+  }
+
+  .footer {
+    div p {
+      font-size: 1rem;
+    }
+
+    span {
+      font-size: 1rem;
+    }
+
+    li a {
+      font-size: 3rem;
+    }
+  }
+}

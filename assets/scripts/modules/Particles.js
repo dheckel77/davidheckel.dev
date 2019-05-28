@@ -12,7 +12,7 @@ var pJS = function(tag_id, params) {
     "#" + tag_id + " > .particles-js-canvas-el"
   );
 
-  /* particles.js variables with default values */
+  /* particles.js variables with default values */ 
   this.pJS = {
     canvas: {
       el: canvas_el,

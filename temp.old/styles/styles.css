@@ -1,9 +1,33 @@
-*,
+/* 
+Theme Name: David Heckel developer
+Author: David Heckel
+Version: 1.0
+*/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #333;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* a {
+	color: $mainOrange;
+} */
+
+/* *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box; } */
 
 html {
   overflow-x: hidden;
@@ -36,15 +60,18 @@ img {
   border-radius: 50px;
   font-size: 1.2rem;
   transition: all 0.5s; }
-  .btn-white:hover {
-    transform: translateY(-3px);
+
+.btn-white:hover {
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
     box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, 0.4); }
 
 .link li a {
   text-decoration: none !important; }
 
 .btn-white:active {
-  transform: translateY(0); }
+  -webkit-transform: translateY(0);
+          transform: translateY(0); }
 
 .container {
   max-width: 1100;
@@ -64,17 +91,22 @@ img {
   align-items: center;
   padding: 1rem;
   margin: 0 2rem;
-  animation: logo 3s; }
-  .main-nav .logo {
+  -webkit-animation: logo 3s;
+          animation: logo 3s; }
+
+.main-nav .logo {
     font-size: 1.5rem;
     color: #fff;
     text-transform: uppercase;
     font-family: "Orbitron", sans-serif;
-    animation: logo 3s; }
-  .main-nav ul {
+    -webkit-animation: logo 3s;
+            animation: logo 3s; }
+
+.main-nav ul {
     display: flex;
     margin-left: auto; }
-  .main-nav li {
+
+.main-nav li {
     font-size: 1.5rem;
     color: #fff;
     margin: 0 1rem;
@@ -82,14 +114,19 @@ img {
     border-bottom: 2px solid transparent;
     transition: all 0.5s;
     padding-bottom: 0.5rem;
-    transform: perspective(500px) rotateY(20deg) rotateX(20deg);
+    -webkit-transform: perspective(500px) rotateY(20deg) rotateX(20deg);
+            transform: perspective(500px) rotateY(20deg) rotateX(20deg);
     transition: all 0.5s; }
-    .main-nav li:hover {
-      transform: rotateY(0) rotateX(0); }
-  .main-nav a {
+
+.main-nav li:hover {
+      -webkit-transform: rotateY(0) rotateX(0);
+              transform: rotateY(0) rotateX(0); }
+
+.main-nav a {
     color: #fff;
     position: relative; }
-    .main-nav a::before {
+
+.main-nav a::before {
       content: "";
       width: 0;
       height: 1.5px;
@@ -110,15 +147,25 @@ ul li:hover a::before {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   font-family: "Orbitron", sans-serif;
   font-weight: 100;
-  animation: logo 3s;
+  -webkit-animation: logo 3s;
+          animation: logo 3s;
   font-size: 1.3rem; }
-  .main-h1 button {
+
+.main-h1 button {
     margin: 2rem 0; }
-    .main-h1 button a {
+
+.main-h1 button a {
       color: #e91e63; }
+
+@-webkit-keyframes logo {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 @keyframes logo {
   0% {
@@ -131,11 +178,19 @@ ul li:hover a::before {
   
 }
 */
+
 .main-h1 h1::after {
   content: ".";
   position: absolute;
   margin-left: 0.3rem;
-  animation: blink 1s infinite; }
+  -webkit-animation: blink 1s infinite;
+          animation: blink 1s infinite; }
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 @keyframes blink {
   0% {
@@ -156,6 +211,7 @@ ul li:hover a::before {
   margin: 0 auto; }
 
 /*about me*/
+
 .about-me {
   position: relative;
   background-attachment: fixed;
@@ -165,9 +221,10 @@ ul li:hover a::before {
   margin-top: -5rem;
   -webkit-clip-path: polygon(50% 20%, 50% 20%, 100% 0, 100% 70%, 100% 100%, 0 100%, 0% 70%, 0 0);
   clip-path: polygon(50% 20%, 50% 20%, 100% 0, 100% 70%, 100% 100%, 0 100%, 0% 70%, 0 0); }
-  .about-me .about-me-content {
+
+.about-me .about-me-content {
     z-index: 0;
-    opacity: 100;
+    opacity: 0;
     width: 1100;
     display: flex;
     flex-wrap: wrap;
@@ -175,18 +232,22 @@ ul li:hover a::before {
     margin-top: 5rem;
     justify-content: center;
     transition: all 1s; }
-  .about-me .about-me h3 {
+
+.about-me .about-me h3 {
     font-size: 1.8rem;
     color: #fff;
     font-family: sans-serif; }
-  .about-me .about-me p {
+
+.about-me .about-me p {
     font-family: sans-serif;
     width: 600px;
     font-size: 1.2rem;
     color: #e91e63; }
-  .about-me .about-me .icons {
+
+.about-me .about-me .icons {
     margin: 2rem 0; }
-    .about-me .about-me .icons li,
+
+.about-me .about-me .icons li,
     .about-me .about-me .icons a,
     .about-me .about-me .icons img {
       width: 50px;
@@ -195,7 +256,8 @@ ul li:hover a::before {
       display: inline;
       color: #fff;
       margin: 0 2px; }
-  .about-me .about-me-h1 {
+
+.about-me .about-me-h1 {
     padding-top: 3rem;
     padding-bottom: 10px;
     text-align: center;
@@ -203,20 +265,41 @@ ul li:hover a::before {
     text-transform: uppercase;
     color: #fff;
     font-family: "Orbitron", sans-serif; }
-  .about-me .about-me-pic {
+
+.about-me .about-me-pic {
     width: 300px;
     height: 300px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     margin-right: 3rem;
     padding: 10px;
     box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, 0.7);
     transition: all 0.5s;
     position: relative;
-    background: url("../../images/DH-Headshot-bw.jpg") no-repeat center;
+    background: url("../../images/igor2.jpg") no-repeat center;
     background-size: cover;
-    animation: bubble 5s linear infinite; }
-    .about-me .about-me-pic:hover {
-      transform: translateY(-10px); }
+    -webkit-animation: bubble 5s linear infinite;
+            animation: bubble 5s linear infinite; }
+
+.about-me .about-me-pic:hover {
+      -webkit-transform: translateY(-10px);
+              transform: translateY(-10px); }
+
+@-webkit-keyframes bubble {
+  0%,
+  100% {
+    padding: 1rem;
+    border: 1px solid #e91e63;
+    border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%; }
+  25% {
+    padding: 1rem;
+    border-radius: 73% 27% 26% 38% / 73% 36% 64% 27%; }
+  50% {
+    padding: 1rem;
+    border-radius: 28% 72% 44% 56% /49% 40% 60% 51%; }
+  75% {
+    padding: 1rem;
+    border-radius: 40% 60% 70% 30% / 47% 62% 38% 53%; } }
 
 @keyframes bubble {
   0%,
@@ -239,7 +322,8 @@ ul li:hover a::before {
   position: relative;
   padding: 3rem 0;
   background: #e91e63; }
-  .what-i-do::after {
+
+.what-i-do::after {
     content: "";
     position: absolute;
     top: -10%;
@@ -247,10 +331,12 @@ ul li:hover a::before {
     width: 20%;
     height: 20%;
     background: #e91e63;
-    transform: rotateZ(-50deg);
+    -webkit-transform: rotateZ(-50deg);
+            transform: rotateZ(-50deg);
     z-index: 10000;
     border-radius: 50%; }
-  .what-i-do::before {
+
+.what-i-do::before {
     content: "";
     position: absolute;
     top: -10%;
@@ -258,10 +344,12 @@ ul li:hover a::before {
     width: 10%;
     height: 20%;
     background: #232323;
-    transform: rotateZ(-50deg);
+    -webkit-transform: rotateZ(-50deg);
+            transform: rotateZ(-50deg);
     z-index: 0;
     border-radius: 50%; }
-  .what-i-do h1 {
+
+.what-i-do h1 {
     padding-top: 5px;
     padding-bottom: 10px;
     text-align: center;
@@ -270,16 +358,19 @@ ul li:hover a::before {
     color: #fff;
     z-index: 10;
     font-family: "Orbitron", sans-serif; }
-  .what-i-do .cards {
+
+.what-i-do .cards {
     transition: all 1s;
-    transform: translateX(-100px);
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
     opacity: 0;
     display: flex;
     text-align: center;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 2rem; }
-    .what-i-do .cards .card {
+
+.what-i-do .cards .card {
       padding: 1rem;
       width: 300px;
       height: 300px;
@@ -289,18 +380,23 @@ ul li:hover a::before {
       justify-content: center;
       align-items: center;
       color: #fff; }
-      .what-i-do .cards .card i {
+
+.what-i-do .cards .card i {
         width: 50px;
         height: 50px;
         font-size: 3rem;
         margin-bottom: 1rem;
         transition: all 0.5s; }
-      .what-i-do .cards .card:hover i {
-        transform: translateY(-20px); }
-      .what-i-do .cards .card h2 {
+
+.what-i-do .cards .card:hover i {
+        -webkit-transform: translateY(-20px);
+                transform: translateY(-20px); }
+
+.what-i-do .cards .card h2 {
         margin-bottom: 0.8rem;
         font-family: "Orbitron", sans-serif; }
-    .what-i-do .cards .card-content p {
+
+.what-i-do .cards .card-content p {
       line-height: 1.7rem;
       font-family: sans-serif; }
 
@@ -309,7 +405,8 @@ ul li:hover a::before {
   background: #232323;
   position: relative;
   padding: 3rem 0; }
-  .form h1 {
+
+.form h1 {
     padding-top: 5px;
     padding-bottom: 10px;
     text-align: center;
@@ -323,7 +420,8 @@ ul li:hover a::before {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   align-items: center; }
-  .form .form-container-main li,
+
+.form .form-container-main li,
   .form .form-container-main a,
   .form .form-container-main img {
     width: 50px;
@@ -345,17 +443,22 @@ ul li:hover a::before {
   padding: 3rem 2rem;
   margin-top: 2rem;
   border-radius: 10px;
-  transform: perspective(1500px) rotateY(20deg) rotateX(20deg);
+  -webkit-transform: perspective(1500px) rotateY(20deg) rotateX(20deg);
+          transform: perspective(1500px) rotateY(20deg) rotateX(20deg);
   transition: all 1s; }
-  .form .form-container:hover {
-    transform: perspective(1500px) rotateY(0) rotateX(0); }
-  .form .form-container label {
+
+.form .form-container:hover {
+    -webkit-transform: perspective(1500px) rotateY(0) rotateX(0);
+            transform: perspective(1500px) rotateY(0) rotateX(0); }
+
+.form .form-container label {
     display: block;
     font-family: "Orbitron", sans-serif;
     font-size: 1.4rem;
     color: #fff;
     margin-bottom: 0.5rem; }
-  .form .form-container input {
+
+.form .form-container input {
     width: 300px;
     height: 2.3rem;
     outline: none;
@@ -363,18 +466,21 @@ ul li:hover a::before {
     border-radius: 50px;
     text-align: center;
     font-size: 1.3rem; }
-  .form .form-container .input-box {
+
+.form .form-container .input-box {
     margin: 2rem 0; }
 
 .form .contact {
   color: #fff;
   font-family: sans-serif; }
-  .form .contact h3 {
+
+.form .contact h3 {
     font-family: "Orbitron", sans-serif;
     margin-bottom: 0.5rem;
     font-weight: 100;
     margin-left: 10px; }
-  .form .contact p {
+
+.form .contact p {
     margin-left: 10px;
     font-size: 1.1rem; }
 
@@ -393,19 +499,24 @@ ul li:hover a::before {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap; }
-  .footer div {
+
+.footer div {
     padding: 0 1rem; }
-  .footer p {
+
+.footer p {
     padding: 0 1rem;
     font-size: 10px; }
-  .footer span img {
+
+.footer span img {
     width: 12px;
     height: 12px;
     font-size: 1rem;
     color: #e91e63; }
-  .footer li {
+
+.footer li {
     display: inline; }
-    .footer li img {
+
+.footer li img {
       color: #fff;
       width: 40px;
       height: 40px;
@@ -417,8 +528,10 @@ ul li:hover a::before {
       margin-right: 2rem;
       margin-bottom: 0.5rem;
       transition: all 0.5s; }
-      .footer li img:hover {
-        transform: translateY(-5px); }
+
+.footer li img:hover {
+        -webkit-transform: translateY(-5px);
+                transform: translateY(-5px); }
 
 @media (min-width: 2000px) {
   .main-nav .logo {
@@ -548,11 +661,13 @@ ul li:hover a::before {
 
 .cards.show {
   opacity: 1;
-  transform: translateY(0); }
+  -webkit-transform: translateY(0);
+          transform: translateY(0); }
 
 .about-me-content.show {
   opacity: 1;
-  transform: translateY(0); }
+  -webkit-transform: translateY(0);
+          transform: translateY(0); }
 
 .form-container.show {
   opacity: 1; }
@@ -564,7 +679,8 @@ ul li:hover a::before {
   background-attachment: fixed;
   color: #fff;
   height: 75vh; }
-  .my-work-section h1 {
+
+.my-work-section h1 {
     padding-top: 5px;
     padding-bottom: 10px;
     text-align: center;
@@ -572,23 +688,30 @@ ul li:hover a::before {
     text-transform: uppercase;
     z-index: 10;
     font-family: "Orbitron", sans-serif; }
-  .my-work-section .glider-contain {
+
+.my-work-section .glider-contain {
     padding: 1rem;
     text-align: center;
     margin-top: 3rem; }
-    .my-work-section .glider-contain .glider-card {
+
+.my-work-section .glider-contain .glider-card {
       margin: 2rem 2rem;
       transition: all 0.5s; }
-      .my-work-section .glider-contain .glider-card:hover {
-        transform: scale(1.1); }
-    .my-work-section .glider-contain h3 {
+
+.my-work-section .glider-contain .glider-card:hover {
+        -webkit-transform: scale(1.1);
+                transform: scale(1.1); }
+
+.my-work-section .glider-contain h3 {
       font-family: "Orbitron", sans-serif;
       font-size: 1.3rem;
       margin-bottom: 1rem; }
-    .my-work-section .glider-contain p {
+
+.my-work-section .glider-contain p {
       font-family: sans-serif;
       margin: 1rem 0; }
-    .my-work-section .glider-contain .gallery-btn {
+
+.my-work-section .glider-contain .gallery-btn {
       padding: 0.3rem 1.8rem;
       border-radius: 10px;
       outline: none;
@@ -596,9 +719,182 @@ ul li:hover a::before {
       border: none;
       transition: all 0.5s;
       margin: 1rem 0; }
-      .my-work-section .glider-contain .gallery-btn a {
+
+.my-work-section .glider-contain .gallery-btn a {
         color: #fff;
         font-size: 1.1rem;
         transition: all 0.5s; }
-    .my-work-section .glider-contain img {
+
+.my-work-section .glider-contain img {
       border-radius: 10px; }
+
+.glider,
+.glider-contain {
+  margin: 0 auto;
+  position: relative;
+}
+
+.glider,
+.glider-track {
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+.glider-dot,
+.glider-next,
+.glider-prev {
+  border: 0;
+  padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: 0;
+}
+
+.glider-contain {
+  width: 90%;
+}
+
+.glider {
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+}
+
+.glider-track {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  z-index: 1;
+}
+
+.glider.draggable {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.glider.draggable .glider-slide img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+
+.glider.drag {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.glider-slide {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  min-width: 150px;
+}
+
+.glider-slide img {
+  max-width: 100%;
+}
+
+.glider::-webkit-scrollbar {
+  opacity: 0;
+  height: 0;
+}
+
+.glider-next,
+.glider-prev {
+  position: absolute;
+  background: 0 0;
+  z-index: 2;
+  font-size: 40px;
+  text-decoration: none;
+  left: -23px;
+  top: 30%;
+  cursor: pointer;
+  color: #fff;
+  opacity: 1;
+  line-height: 1;
+  transition: opacity 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67),
+    color 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.glider-next:focus,
+.glider-next:hover,
+.glider-prev:focus,
+.glider-prev:hover {
+  color: #ccc;
+}
+
+.glider-next {
+  right: -23px;
+  left: auto;
+}
+
+.glider-next.disabled,
+.glider-prev.disabled {
+  opacity: 0.25;
+  color: #fff;
+  cursor: default;
+}
+
+.glider-hide {
+  opacity: 0;
+}
+
+.glider-dots {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.glider-dot {
+  display: block;
+  cursor: pointer;
+  color: #ccc;
+  border-radius: 999px;
+  background: #ccc;
+  width: 12px;
+  height: 12px;
+  margin: 7px;
+}
+
+.glider-dot:focus,
+.glider-dot:hover {
+  background: #e91e63;
+}
+
+.glider-dot.active {
+  background: #a89cc8;
+}
+
+@media (max-width: 36em) {
+  .glider::-webkit-scrollbar {
+    opacity: 1;
+    -webkit-appearance: none;
+    width: 7px;
+    height: 3px;
+  }
+  .glider::-webkit-scrollbar-thumb {
+    opacity: 1;
+    border-radius: 99px;
+    background-color: rgba(156, 156, 156, 0.25);
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.25);
+  }
+}

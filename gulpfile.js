@@ -50,7 +50,7 @@ function css() {
 		// .pipe(uglify())
 		// .pipe(lineec())
 		.pipe(gulp.dest(paths.css.dest))
-		.pipe(browsersync.stream());
+		.pipe(browsersync.stream()); 
 }
 
 function scripts() {

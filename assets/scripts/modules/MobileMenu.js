@@ -16,6 +16,6 @@ class MobileMenu{
 		console.log(this);
 		this.menuContent.toggleClass("site-header__menu-content--is-visible");
 	}
-}
+} 
 
 export default MobileMenu;

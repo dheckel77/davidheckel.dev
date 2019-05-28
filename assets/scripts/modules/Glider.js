@@ -10,7 +10,7 @@
   Website: https://nickpiscitelli.com
   Documentation: http://nickpiscitelli.github.io/Glider.js
   License: MIT License
-  Release Date: October 25th, 2018
+  Release Date: October 25th, 2018 
 
 */
 !(function(e) {
