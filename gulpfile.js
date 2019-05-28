@@ -25,7 +25,7 @@ const gulp = require("gulp"),
 
 var paths = {
 	css: {
-		src: "./assets/css/**/*.css",
+		src: "./assets/css/styles.css",
 		dest: "./assets/dist/css/"
 	},
 	scripts: {
@@ -43,14 +43,14 @@ function css() {
 	return gulp
 		.src(paths.css.src)
 		.pipe(plumber())
-		// .pipe(sourcemaps.init({loadMaps: true}))
-		.pipe(postcss([cssImport, mixins, cssvars, nested, hexrgba]))
+		.pipe(sourcemaps.init({loadMaps: true}))
+		.pipe(postcss([cssImport, cssnano(), mixins, cssvars, nested, hexrgba]))
 		.pipe(autoprefixer('last 2 versions'))
-		// .pipe(sourcemaps.write())
+		.pipe(sourcemaps.write('.'))
 		// .pipe(uglify())
 		// .pipe(lineec())
 		.pipe(gulp.dest(paths.css.dest))
-		.pipe(browsersync.stream()); 
+		// .pipe(browsersync.stream()); 
 }
 
 function scripts() {
@@ -62,7 +62,7 @@ function scripts() {
 		.pipe(browsersync.stream());
 }
 
-function browserSyncReload(done) {
+function reload(done) {
 	browsersync.reload();
 	done();
 }
@@ -80,13 +80,14 @@ function watchFiles() {
   gulp.watch("./assets/styles/**/*", css);
   gulp.watch("./assets/scripts/**/*", scripts);
 	// gulp.watch("./assets/images/**/*", images);
-	gulp.watch("./assets/index.html", browserSyncReload);
+	gulp.watch("./assets/index.html", reload);
 }
 
 
 const build = gulp.series(clean, gulp.parallel(css, scripts));
 const watch = gulp.parallel(watchFiles, browserSync);
 
+exports.reload = reload;
 exports.clean = clean;
 exports.css = css;
 exports.scripts = scripts;

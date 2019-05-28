@@ -8,4 +8,4 @@ var glider = new Glider();
 var mobileMenu = new MobileMenu();
 var particles = new Particles();
 new RevealOnScroll($(".feature-item"), "85%");
-new RevealOnScroll($(".testimonial"), "60%");
+new RevealOnScroll($(".testimonial"), "60%"); 

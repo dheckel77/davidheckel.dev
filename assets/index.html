@@ -6,47 +6,52 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta
     name="description"
-    content="frontend developer building websites from scratch using recent technologies such as HTML5, CSS3 / PostCSS, JavaScript, REACT and more"
+    content="frontend developer building websites from scratch using recent technologies such as HTML5, CSS3 / PostCSS, JavaScript, React and more"
   />
 
   <title>Web Development & Design - David Heckel</title>
   <meta name="author" content="David Heckel" />
-  <meta name="keywords" content="WordPress, HTML5, CSS3, jQuery, JavaScript, PHP, WooCommerce, full stack developer" />
+  <meta name="keywords" content="WordPress, HTML5, CSS3, jQuery, JavaScript, PHP, WooCommerce, React, full stack developer" />
 
-  <link rel="shortcut icon" href="./assets/favicon/android-chrome-512x512.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="./favicon/android-chrome-512x512.png" type="image/png" />
   <link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" />
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' type='text/css'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Orbitron' type='text/css'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Titillium+Web"' type='text/css'>
   <link rel="stylesheet" href="./dist/css/styles.css" />
-  <script src="/assets/dist/scripts/App.js"></script>
+  <script src="./dist/scripts/App.js"></script>
   
 </head>
 <body>
-  <header id="header" class="main-header"> 
-    <div id="particles-js">
-      <nav id="nav" class="main-nav">
+  <header class="main-header">
+    <div class="wrapper">
+      <div id="particles-js">
         <div class="logo">
           <a href="/index.html">
             <h2>David <span>Heckel</span></h2>
           </a>
         </div>
+        
+        <nav id="nav" class="main-nav">
+          <ul>
+            <li><a href="#about-me">About Me</a></li>
+            <li><a href="#what-i-do">What I Do</a></li>
+            <li><a href="#my-work">Projects</a></li>
+            <li><a href="#form">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-        <ul>
-          <li><a href="#about-me">About Me</a></li>
-          <li><a href="#what-i-do">What I Do</a></li>
-          <li><a href="#my-work">Projects</a></li>
-          <li><a href="#form">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="main-h1">
-        <h1><span class="h1-span">WordPress & Full Stack Developer</span></h1>
+  <section id="large-hero">
+     <div class="main-h1">
+        <h1 class="main-h1--title">WordPress & Full Stack Developer</h1>
         <button class="btn btn-white" type="button">
           <a href="#form">Contact Me</a>
         </button>
       </div>
-    </div>
-  </header>
+  </section>
 
   <section id="about-me" class="about-me">
     <h1 class="about-me-h1">
@@ -58,10 +63,10 @@
     <div class="about-me-content">
       <div class="about-me-pic">­</div>
 
-      <div class="about-me" id="about-me-1">
-        <h3>Frontend Developer</h3>
+      <div id="about-me-1" class="about-me">
+        <h3>WordPress & Full Stack Developer</h3>
         <p>
-          Hey there, my name is David Heckel, frontend developer. I Specialize in
+          Hey there, my name is David Heckel. I Specialize in
           building WordPress websites from scratch using recent technologies such as:
           PHP, HTML5, CSS3 / SASS, JavaScript, WordPress, and more. You can check my
           GitHub portfolio & my linkedin page in the links below.
@@ -84,7 +89,7 @@
     </div>
   </section>
 
-  <section id="what-i-do" class="what-i-do">
+  <section id="what" class="what">
     <h1 class="about-me-h1">
       what i do
     </h1>

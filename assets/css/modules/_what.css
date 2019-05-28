@@ -1,0 +1,84 @@
+.what h1 {
+	font-size: 3rem; }
+.what .card {
+	width: 500px; }
+	.what .card p {
+		width: 450px;
+		font-size: 2rem; }
+	.what .card i {
+		font-size: 4rem; }
+	.what .card h2 {
+		font-size: 2rem; }
+.what::before {
+	left: 71%; }
+
+
+.what {
+  background-size: cover;
+  position: relative;
+  padding: 3rem 0;
+  background: #e91e63; }
+  .what::after {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 70%;
+    width: 20%;
+    height: 20%;
+    background: #e91e63;
+    transform: rotateZ(-50deg);
+    z-index: 10000;
+    border-radius: 50%; }
+  .what::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 70%;
+    width: 10%;
+    height: 20%;
+    background: #232323;
+    transform: rotateZ(-50deg);
+    z-index: 0;
+    border-radius: 50%; }
+  .what h1 {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #fff;
+    z-index: 10;
+    font-family: "Orbitron", sans-serif; }
+  .what .cards {
+    transition: all 1s;
+    transform: translateX(-100px);
+    opacity: 100;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 2rem; }
+    .what .cards .card {
+      padding: 1rem;
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff; }
+      .what .cards .card i {
+        width: 50px;
+        height: 50px;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        transition: all 0.5s; }
+      .what .cards .card:hover i {
+        transform: translateY(-20px); }
+      .what .cards .card h2 {
+        margin-bottom: 0.8rem;
+        font-family: "Orbitron", sans-serif; }
+    .what .cards .card-content p {
+      line-height: 1.7rem;
+      font-family: sans-serif; }
