@@ -1,6 +1,13 @@
 .large-hero {
 	border-bottom: 10px solid $mainBlue;
 	position: relative;
+	height: 90vh;
+  -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 0, 100% 80%, 50% 100%, 50% 100%, 0 80%, 0 0);
+  clip-path: polygon(30% 0%, 70% 0%, 100% 0, 100% 80%, 50% 100%, 50% 100%, 0 80%, 0 0);
+  background: linear-gradient(to bottom, #c1226798, #e4287da2), url("../../images/1.jpg") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+
 
 	&__image {
 		display: block;
@@ -22,7 +29,7 @@
 
 	&__title {
 		font-weight: 300;
-		color: $mainBlue;
+		color: #fff;
 		font-size: 2.4rem;
 		margin: 0;
 
