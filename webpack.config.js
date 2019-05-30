@@ -1,23 +1,25 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
+	mode: 'development',
 	entry: {
-		App: "./assets/scripts/App.js",
+		App: "./app/assets/scripts/App.js",
 	},
 	output: {
-		path: path.resolve(__dirname, "./temp/scripts"),
+		path: path.resolve(__dirname, "./temp/scripts/"),
 		filename: "[name].js"
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
-				loader: 'babel-loader',
-				query: {
-					presets: ['es2015']
-				},
 				test: /\.js$/,
-				exclude: /node_modules/
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env']
+					}
+				}
 			}
 		]
 	}

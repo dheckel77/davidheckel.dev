@@ -1,5 +1,3 @@
-// import './gulp/tasks/sprites';
-
 const gulp = require("gulp"),
 	postcss = require('gulp-postcss'),
 	plumber = require('gulp-plumber'),
@@ -10,7 +8,10 @@ const gulp = require("gulp"),
 	modernizr = require('gulp-modernizr');
 	changed = require('gulp-changed'),
 	uglify = require('gulp-uglify'),
-	lineec = require('gulp-line-ending-corrector'),
+	notify = require('gulp-notify'),
+	rev = require('gulp-rev'),
+	htmlmin = require('gulp-htmlmin'),	
+	lec = require('gulp-line-ending-corrector'),
 	sourcemaps = require('gulp-sourcemaps'),
 	del = require('del'),
 	autoprefixer = require('gulp-autoprefixer'),
@@ -27,22 +28,52 @@ const gulp = require("gulp"),
 
 var paths = {
 	styles: {
-		src: "./assets/styles/styles.css",
-		dest: "./dist/styles/"
+		src: "./app/assets/styles/styles.css",
+		dest: "./app/temp/styles/"
 	},
 	scripts: {
-		src: "./assets/scripts/**/App.js",
-		dest: "./dist/scripts/"
+		src: "./app/assets/scripts/App.js",
+		dest: "./app/temp/scripts/"
 	},
 	images: {
-		src: "'./assets/images/**.*', './assets/favicon/android-chrome-512x512.png', '!./assets/favicon/**/*'",
-		dest: "./dist/images/"
+		src: "./app/assets/images/**/*",
+		dest: "./docs/assets/images/"
 	},
 };
 
-function clean() {
-	return del(['./dist/**/*']);
+function previewDist(done) {
+	browsersync.init({
+		server: {
+			baseDir: "docs",
+			injectChanges: true
+		}
+	});
+	done();
 }
+
+function clean() {
+	return del(['./docs/**/*'])
+}
+
+function copyGeneralFiles() {
+	let pathsToCopy = [
+		'./app/**/*',
+		'!./app/index.html',
+		'!./app/assets/images/**',
+		'!./app/assets/styles/**',
+		'!./app/assets/scripts/**',
+		'!./app/temp',
+		'!./app/temp/**'
+	]
+	return gulp
+		.src(pathsToCopy)
+		.pipe(gulp.dest("./docs"));
+}
+
+// require('./gulp/tasks/scripts');
+// require('./gulp/tasks/styles');
+// require('./gulp/tasks/watch');
+// require('./gulp/tasks/sprites');
 
 function styles() {
 	return gulp
@@ -53,30 +84,18 @@ function styles() {
 		.pipe(autoprefixer('last 2 versions'))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(paths.styles.dest))
-		.pipe(browsersync.stream());
+		.pipe(browsersync.stream())
+		.pipe(notify("Styles built"));
 }
 
-function scripts() {
-	return gulp
-		.src(paths.scripts.src)
-		.pipe(uglify())
-		.pipe(lineec())
-		.pipe(gulp.dest(paths.scripts.dest))
-		.pipe(browsersync.stream());
-}
-
-function reload(done) {
-	browsersync.reload();
-	done();
-}
-
-function browserSync(done) {
-	browsersync.init({
-		server: {
-			baseDir: "assets"
-		}
-	});
-	done();
+function scripts(done) {
+  webpack(require('./webpack.config'), function(err, stats) {
+    if (err) {
+      console.log(err.toString());
+    }
+		console.log(stats.toString());
+    done();
+  });
 }
 
 function optimizeImages() {
@@ -92,36 +111,65 @@ function optimizeImages() {
 
 function useminHTML() {
 	return gulp
-		.src("./assets/index.html")
-    .pipe(usemin())
-    .pipe(gulp.dest("./dist"));
+		.src("./app/index.html")
+		.pipe(usemin({
+			css: [ rev()],
+			js: [function() {return rev()}, function() {return uglify()}],
+			html: [htmlmin({ collapseWhitespace: true })],
+			inlinecss: [cleanCSS(), 'concat']
+		}))
+		.pipe(gulp.dest("./docs"));
 }
 
 function modernizR() {
-  return gulp.src(['./assets/styles/**/*.css', './assets/scripts/**/*.js'])
-    .pipe(modernizr({
-      "options": [
-        "setClasses"
-      ]
-    }))
-    .pipe(gulp.dest('./assets/scripts/'));
+	return gulp.src(['./app/assets/styles/**/*.css', './app/assets/scripts/**/*.js'])
+		.pipe(modernizr({
+			"options": [
+				"setClasses"
+			]
+		}))
+		.pipe(gulp.dest('./app/assets/scripts/'));
+}
+
+function reload(done) {
+	browsersync.reload();
+	done();
+}
+
+function browserSync(done) {
+	browsersync.init({
+		server: {
+			baseDir: "app",
+			injectChanges: true
+		}
+	});
+	done();
 }
 
 function watchFiles() {
-  gulp.watch("./assets/styles/**/*.css", styles);
-  gulp.watch("./assets/scripts/**/*.js", scripts);
-	gulp.watch("./assets/images/**/*.{jpg, png}", optimizeImages);
-	gulp.watch("./assets/index.html", browsersync.reload());
+  gulp.watch("./app/assets/styles/**/*.css", styles);
+  gulp.watch("./app/assets/scripts/**/*.js", scripts);
+	gulp.watch("./app/assets/images/**/*.{jpg, png}", optimizeImages);
+	var html = gulp.watch('./app/index.html');
+  html.on('change', function(path, stats) {
+    console.log('you changed the html');
+    browsersync.notify("Compiling, please wait!");
+    browsersync.reload("index.html");
+  })
 }
 
-
-const build = gulp.series(clean, modernizR, gulp.parallel(optimizeImages, useminHTML, styles, scripts));
+const build = gulp.series(clean, copyGeneralFiles, modernizR, optimizeImages, useminHTML);
 const watch = gulp.parallel(watchFiles, browserSync);
 
 exports.reload = reload;
 exports.clean = clean;
+exports.copyGeneralFiles = copyGeneralFiles;
 exports.styles = styles;
 exports.scripts = scripts;
+exports.optimizeImages = optimizeImages;
+exports.useminHTML = useminHTML;
+exports.modernizR = modernizR;
+exports.previewDist = previewDist;
 exports.build =build;
 exports.watch = watch;
 exports.default = build;
